@@ -1,4 +1,4 @@
-// Playground - noun: a place where people can play
+// a tour for Swift 1.2 
 
 import UIKit
 
