@@ -96,14 +96,14 @@ let languageName = "Swift" //常量不能修改值
 
 // 2.4. Printing Constants and Variables 输出常量和变量
   // 你可以用println函数来输出当前常量或变量的值:
-print(friendlyWelcome)  // with a line break
+println(friendlyWelcome)  // with a line break
 
 print(friendlyWelcome) // without a line break
 
 // println是一个用来输出的全局函数，输出的内容会在最后换行。如果你用 Xcode，println将会输出内容到“console”面板上。(另一种函数叫print，唯一区别是在输出内容最后不会换行。)
 
 // println函数输出传入的String值：
-print("This is a string") // it's a function = NSlog() in Cocoa
+println("This is a string") // it's a function = NSlog() in Cocoa
 
 // 与 Cocoa 里的NSLog函数类似的是，println函数可以输出更复杂的信息。这些信息可以包含当前常量和变量的值。
 
@@ -112,7 +112,7 @@ print("This is a string") // it's a function = NSlog() in Cocoa
 
 
 //NSlog("This is a string too.") //但是NSlog在swift里不能用了。
-print("The current value of friendlyWelcome is \(friendlyWelcome)")
+println("The current value of friendlyWelcome is \(friendlyWelcome)")
 
 // 注意：字符串插值所有可用的选项，请参考String Interpolation。
 
@@ -137,7 +137,7 @@ this is the end of the first multiline comment */
 
 // 4. Semicolons 分号
   // 与其他大部分编程语言不同，Swift 并不强制要求你在每条语句的结尾处使用分号（;），当然，你也可以按照你自己的习惯添加分号。有一种情况下必须要用分号，即你打算在同一行内写多条独立的语句：
-let cat = "🐱"; print(cat)  //“Semicolons are required, however, if you want to write multiple separate statements on a single line”
+let cat = "🐱"; println(cat)  //“Semicolons are required, however, if you want to write multiple separate statements on a single line”
 
 
 
@@ -359,9 +359,9 @@ let turnipsAreDelicious = false
 
 // 当你编写条件语句比如if语句的时候，布尔值非常有用：
 if turnipsAreDelicious {  //默认判断是否为true
-    print("Mmm, tasty turnips!")
+    println("Mmm, tasty turnips!")
 } else {
-    print("Eww, turnips are horrible.")
+    println("Eww, turnips are horrible.")
 }
 // 条件语句，例如if，请参考Control Flow。
 
@@ -400,29 +400,29 @@ let http404Error = (404, "Not Found")
 
 // 你可以将一个元组的内容分解（decompose）成单独的常量和变量，然后你就可以正常使用它们了
 let (statusCode, statusMessage) = http404Error // 定义方法1
-print("The status code is \(statusCode)")
+println("The status code is \(statusCode)")
 
-print("The status message is \(statusMessage)")
+println("The status message is \(statusMessage)")
 // 分解一个元组内容
 
 
 // 如果你只需要一部分元组值，分解的时候可以把要忽略的部分用下划线（_）标记：
 let (justTheStatusCode, _) = http404Error //只取一部分元组值
-print("The status code is \(justTheStatusCode)")
+println("The status code is \(justTheStatusCode)")
 
 // 此外，你还可以通过下标来访问元组中的单个元素，下标从零开始：
-print("The status code is \(http404Error.0)")//  另外一种方法
+println("The status code is \(http404Error.0)")//  另外一种方法
 
-print("The status message is \(http404Error.1)")
+println("The status message is \(http404Error.1)")
 
 
 // 你可以在定义元组的时候给单个元素命名：
 let http200Status = (statusCode: 200, description: "OK") //定义方法2
 
 // 给元组中的元素命名后，你可以通过名字来获取这些元素的值：
-print("The status code is \(http200Status.statusCode)")
+println("The status code is \(http200Status.statusCode)")
 
-print("The status message is \(http200Status.description)")
+println("The status message is \(http200Status.description)")
 
 
 
@@ -487,11 +487,11 @@ var surveyAnswer: String?
 //判断等于用==， 判断不等于用！=
 
 if convertedNumber != nil {
-    print("convertedNumber constains some integer value.")
+    println("convertedNumber constains some integer value.")
 }
 
 if convertedNumber != nil {
-    print("converteedNumber has an integer value of \(convertedNumber!).") // 当你确定这个optional 变量肯定有值，你可以在变量后面加！
+    println("converteedNumber has an integer value of \(convertedNumber!).") // 当你确定这个optional 变量肯定有值，你可以在变量后面加！
 }
 
 //注意:使用!来获取一个不存在的可选值会导致运行时错误。使用!来强制解析值之前,一 定要确定可选包含一个非 nil 的值。
@@ -512,9 +512,9 @@ if convertedNumber != nil {
 // 你可以像上面这样使用‘可选绑定’而不是’强解析‘来重写possibleNumber这个例子：
 
 if let actualNumber = possibleNumber.toInt() {
-    print("\(possibleNumber) has an integer value of \(actualNumber)")
+    println("\(possibleNumber) has an integer value of \(actualNumber)")
 } else {
-    print("\(possibleNumber) could not be converted to an integer")
+    println("\(possibleNumber) could not be converted to an integer")
 }
 // prints "'123' has an integer value 123"
 
@@ -547,12 +547,12 @@ if let constantName = someOptional, anotherConstantName = someOtherOptional {
 // 一个隐式解析可选其实就是一个普通的可选，但是可以被当做非可选来使用，并不需要每次都使用解析来获取可选值。下面的例子展示了可选String和隐式解析可选String之间的区别：
 let possibleString: String? = "An optional string."
 
-print(possibleString!) //需要惊叹号来获取值
+println(possibleString!) //需要惊叹号来获取值
 
 
 let assumedString: String! = "An implicitly unwrapped optional string."
 
-print(assumedString)// 不需要感叹号
+println(assumedString)// 不需要感叹号
 
 //你可以把隐式解析可选当做一个可以自动解析的可选。你要做的只是声明的时候把感叹号放到类型的结尾,而不是每次取值的可选名字的结尾。
 
@@ -560,11 +560,11 @@ print(assumedString)// 不需要感叹号
 
 // 你仍然可以把隐式解析可选当做普通可选来判断它是否包含值：
 if assumedString != nil {
-    print(assumedString)
+    println(assumedString)
 }
 // 你也可以在可选绑定中使用隐式解析可选来检查并解析它的值：
 if let definiteString = assumedString {
-    print(definiteString)
+    println(definiteString)
 }
 
 //￼注意:如果一个变量之后可能变成 nil 的话请不要使用隐式解析可选。如果你需要在变量的 生命周期中判断是否是 nil 的话,请使用普通可选类型。
